@@ -33,7 +33,7 @@ public String stringBits(String str){
     return ans;
 }
 
-// this isn't working, at the moment. I'm confused on it.
+// this isn't working, at the moment. I'm confused on it. I'm not thinking straigh today, I have a headache. Took about 25 minutes
 
 public String stringYak(String str){
     String ans = "";
