@@ -33,6 +33,7 @@ public String stringBits(String str){
     return ans;
 }
 
+// this isn't working, at the moment. I'm confused on it.
 
 public String stringYak(String str){
     String ans = "";
