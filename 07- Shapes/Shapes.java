@@ -13,7 +13,7 @@ public class Shapes{
   }
     
    
-    //55 minutes still no solution.    
+    //55 minutes still no solution. it turns out just like tri1, which is very weird   
     public String tri2(int h){
 	int spacesNum = h - 1;
 	int rows = h;
