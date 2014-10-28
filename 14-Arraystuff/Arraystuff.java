@@ -52,6 +52,17 @@ public class  Arraystuff {
 	}
         return currentMax;
     }
+
+    public int freq(int n){
+	int count = 0;
+	int num = a[i];
+	for (int k = 0 ; k < a.length; k++){
+	    if (num == a[k]){
+		count += 1;
+	    }
+	}
+	return count;
+    }
     /*--------------------- Main --------------------*/ 
 
     public static void main(String[] args) {
