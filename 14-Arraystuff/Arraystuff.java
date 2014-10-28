@@ -44,8 +44,8 @@ public class  Arraystuff {
     
 
     public int maxVal(){
-	int currentMax = 0;
-	for (int i = 0; i<a.length;i++){
+	int currentMax = a[0];
+	for (int i = 0; i<a.length ;i++){
 	    if (a[i] > currentMax){
 		currentMax = a[i];
 	    }
