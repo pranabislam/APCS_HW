@@ -36,26 +36,53 @@ public class Sarray {
 	    for (int k = 0; k < index ; k++){
 		datanew[k] = this[k];
 	    }
+	}
+	else{
+	    for (int g = last; g >= index; g--){
+		this[g+1] = this[g];
+	    }
+	    this[index] = i;
+	}
+	    //I'm a bit confused as to how I should attempt to add 
+	    // a value in a certain location. Also I didn't know if 
+	    // making a new array and using that array was the right 
+	    // approach. 
 	    
 	// adds item i  at index, shifting everything down as needed.
         // also grows as needed 
     }
 
     public int size() {
-        // returns the number of items in the list (not the array size)
+	return last + 1;
+	    
+	// returns the number of items in the list (not the array size)
     }
 
     public int get(int index) {
+        return data[index];
+	    
+       
+
         // returns the item at location index of the lsit
     }
 
     public int set(int index, int i){
-        // sets the item at location index to value i
+        int oldvalue = data[index];
+	data[index] = i;
+	return oldvalue;
+	    
+	// sets the item at location index to value i
         // returns the old value. 
     }
 
     public int remove(int index){
-        // removes the item at index i
+	int oldvalue = data[index];
+        for (int i = index;i<last;i++){
+	    this[i] = this[i+1];
+	    last = last - 1;
+	}
+	return oldvalue;
+	// removes the item at index i
         // returns the old value
     }
 }
