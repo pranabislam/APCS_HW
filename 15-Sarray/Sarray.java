@@ -19,7 +19,7 @@ public class Sarray {
 	    makeBigger(data, 20);
 	    data[last+1] = i;
 	}
-	
+
 	else {
 	    data[last +1] = i;
 	}
@@ -31,7 +31,10 @@ public class Sarray {
 
 
     public void  add(int index, int i){
-        if (last == data.length -1){
+       	if (index > last + 1){
+	    throw new ArrayIndexOutOfBoundsException();
+	}
+	if (last == data.length -1){
 	    makeBigger(data, 20);
 	    }
 	for (int g = last; g >= index; g--){
@@ -76,6 +79,9 @@ public class Sarray {
 	}
 	if (index == last){
 	    last--;
+	}
+	if (index > last){
+	    throw new ArrayIndexOutOfBoundsException();
 	}
 	return oldvalue;
 	// removes the item at index i
