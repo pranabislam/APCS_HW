@@ -5,20 +5,25 @@ public class Sarray {
     int   last;
 
     public Sarray() {
-	data = new int[20];
+	data = new int[6];
 	data[0] = 2;
 	data[1] = 5;
 	data[2] = 43;
-	last = 2;
+	data[3] = 231;
+	data[4] = 2029;
+	data[5] = 1111;
+	last = 5;
     }
     public boolean add(int i){
         if (last == data.length-1){
 	    makeBigger(data, 20);
+	    data[last+1] = i;
 	}
 	
 	else {
 	    data[last +1] = i;
 	}
+	last++;
 	return true;
     }
 	// adds an item to the end of the list, grow if needed
@@ -29,18 +34,13 @@ public class Sarray {
         if (last == data.length -1){
 	    makeBigger(data, 20);
 	    }
-	
-	else{
-	    for (int g = last; g >= index; g--){
+	for (int g = last; g >= index; g--){
 		data[g+1] = data[g];
-	    }
 	}
 	    data[index] = i;
+	    last++;
     }
-	    //I'm a bit confused as to how I should attempt to add 
-	    // a value in a certain location. Also I didn't know if 
-	    // making a new array and using that array was the right 
-	    // approach. 
+	   
 	    
 	// adds item i  at index, shifting everything down as needed.
         // also grows as needed 
@@ -71,9 +71,11 @@ public class Sarray {
 
     public int remove(int index){
 	int oldvalue = data[index];
-        for (int i = index;i<last;i++){
+        for (int i = index;i<=last;i++){
 	    data[i] = data[i+1];
-	    last = last - 1;
+	}
+	if (index == last){
+	    last--;
 	}
 	return oldvalue;
 	// removes the item at index i
@@ -86,15 +88,14 @@ public class Sarray {
 	System.arraycopy(longer, 0, data, 0, data.length);
     }
   
-public String printArray(int[] array1){
+public String printArray(){
 	String ans = "{";
-	for (int i = 0; i < array1.length; i++){
-	    ans = ans + array1[i] + ",";
+	for (int i = 0; i < data.length; i++){
+	    ans = ans + data[i] + ",";
 	}
 	ans = ans + "}";
 	return ans;
     }
 
-  
 
 }
