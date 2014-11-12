@@ -11,14 +11,9 @@ public class Sarray {
 	data[2] = 43;
 	last = 2;
     }
-
     public boolean add(int i){
         if (last == data.length-1){
-	    int[] datanew = new int[data.length + 1];
-	    for (int t = 0; t < data.length; t++){
-		datanew[t] = data[t];
-	    }
-	    datanew[data.length] = i;
+	    makeBigger(data, 20);
 	}
 	
 	else {
@@ -28,21 +23,20 @@ public class Sarray {
     }
 	// adds an item to the end of the list, grow if needed
         // returns true
-    }
+
 
     public void  add(int index, int i){
-        if (last == this.length -1){
-	    int[] datanew = new int[this.length + 1];
-	    for (int k = 0; k < index ; k++){
-		datanew[k] = this[k];
+        if (last == data.length -1){
+	    makeBigger(data, 20);
 	    }
-	}
+	
 	else{
 	    for (int g = last; g >= index; g--){
-		this[g+1] = this[g];
+		data[g+1] = data[g];
 	    }
-	    this[index] = i;
 	}
+	    data[index] = i;
+    }
 	    //I'm a bit confused as to how I should attempt to add 
 	    // a value in a certain location. Also I didn't know if 
 	    // making a new array and using that array was the right 
@@ -50,7 +44,7 @@ public class Sarray {
 	    
 	// adds item i  at index, shifting everything down as needed.
         // also grows as needed 
-    }
+    
 
     public int size() {
 	return last + 1;
@@ -78,11 +72,29 @@ public class Sarray {
     public int remove(int index){
 	int oldvalue = data[index];
         for (int i = index;i<last;i++){
-	    this[i] = this[i+1];
+	    data[i] = data[i+1];
 	    last = last - 1;
 	}
 	return oldvalue;
 	// removes the item at index i
         // returns the old value
     }
+    public void makeBigger(int[] before, int numSpaces){
+	int[] longer = new int[data.length + numSpaces];
+	System.arraycopy(data,0,longer,0,data.length);
+	data = new int[longer.length];
+	System.arraycopy(longer, 0, data, 0, data.length);
+    }
+  
+public String printArray(int[] array1){
+	String ans = "{";
+	for (int i = 0; i < array1.length; i++){
+	    ans = ans + array1[i] + ",";
+	}
+	ans = ans + "}";
+	return ans;
+    }
+
+  
+
 }
