@@ -52,9 +52,66 @@ public class WordSearch {
 		return true; } }
 	return false;
     }
+    
+    public boolean overlapDiagonalSE(String w, int row, int col){
+	int i = 0;
+	int r = row;
+	int c = col;
+	while (i <w.length()){
+	    if ((w.charAt(i) == board[r][c])|| (board[r][c] == '.')){
+		i++;
+		r++;
+		c++;
+	    }
+	    else {
+		return true; } }
+	return false;
+    }
 	    
-	
+    public boolean overlapDiagonalNE(String w, int row, int col){
+	int i = 0;
+	int r = row;
+	int c = col;
+	while (i <w.length()){
+	    if ((w.charAt(i) == board[r][c])|| (board[r][c] == '.')){
+		i++;
+		r--;
+		c++;
+	    }
+	    else {
+		return true; } }
+	return false;
+    }	
 
+        public boolean overlapDiagonalNW(String w, int row, int col){
+	int i = 0;
+	int r = row;
+	int c = col;
+	while (i <w.length()){
+	    if ((w.charAt(i) == board[r][c])|| (board[r][c] == '.')){
+		i++;
+		r--;
+		c--;
+	    }
+	    else {
+		return true; } }
+	return false;
+    }
+
+        public boolean overlapDiagonalSW(String w, int row, int col){
+	int i = 0;
+	int r = row;
+	int c = col;
+	while (i <w.length()){
+	    if ((w.charAt(i) == board[r][c])|| (board[r][c] == '.')){
+		i++;
+		r++;
+		c--;
+	    }
+	    else {
+		return true; } }
+	return false;
+    }
     
     public void addWordH(String w, int row, int col){
 	int c = col;
