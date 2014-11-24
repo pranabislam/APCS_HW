@@ -30,6 +30,26 @@ public class WordSearch {
 	return s;
     }
 
+
+    public boolean overlapGeneral(String w, int row, int col, int dx, int dy){
+	int i = 0;
+	int c = col;
+	int r = row;
+	while (i < w.length()){
+	    if ((w.charAt(i) == board[r][c])||
+		(board[r][c] == '.')){
+		i++;
+		c = c + dx;
+		r = r + dy;
+	    }
+	    else {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+
     public boolean overlapHorizontal(String w, int row, int col){
 	int i = 0;
 	int c = col;
@@ -149,6 +169,27 @@ public class WordSearch {
 	return false;
     }
     
+    public boolean generalErrorCheck(String w, int row, int col, int dx, int dy){
+	if ((w.length() + c <= board[0].length)){
+	    return false;
+	}
+    public void addWordGeneral(String w, int row, int col, int dx, int dy){
+	int c = col;
+	int r = row;
+        if ((w.length() + c <= board[0].length)   //word must fit in the board
+	    && (w.length() + col >= 0)&&
+	    (row >= 0 && row < board.length)){   //illegal column and row stop
+	    if (!(overlapHorizontal(w, row, col))){   //overlap false means good to go
+		for (int i=0; i < w.length();i++){
+		    board[r][c] = w.charAt(i);
+		    c = c + dx;
+		    r = r + dy;
+		    
+		}
+	    }
+	}
+    }
+
     public void addWordH(String w, int row, int col){
 	int c = col;
         if ((w.length() + c <= board[0].length)   //word must fit in the board
