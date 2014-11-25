@@ -1,2 +1,2 @@
-My methods work, have to fix error bounds but also make all 8 methods into 1 method. 
-Have yet to read from the file. 
+I have the combined add words function. I have yet to implement the file reader. 
+I left all the separate add word functions there because it was hundreds of lines of code and I just wanted to look at it hahha
