@@ -342,6 +342,7 @@ public class WordSearch {
 	if (dx == 0 && dy == 0){
 	    return false;
 	}
+	return true;
     }
     public boolean addWord1(String w){
 	int value  = r.nextInt(8);
