@@ -31,7 +31,7 @@ public class WordSearch {
     }
 
 
-    public boolean overlapGeneral(String w, int row, int col, int dx, int dy){
+    public boolean overlapGeneral(String w, int row, int col, int dy, int dx){
 	int i = 0;
 	int c = col;
 	int r = row;
@@ -168,18 +168,42 @@ public class WordSearch {
 		return true; } }
 	return false;
     }
-    
-    public boolean generalErrorCheck(String w, int row, int col, int dx, int dy){
-	if ((w.length() + c <= board[0].length)){
-	    return false;
-	}
-    public void addWordGeneral(String w, int row, int col, int dx, int dy){
+      
+    public boolean generalErrorCheck(String w, int row, int col, int dy, int dx){
+	if (dx > 0){
+	    if ((w.length() + col > board[0].length) ||
+		(col > board[0].length - 1) ||
+		(col < 0)){
+		return false;
+	    }}
+	if (dx < 0){
+	    if ((col - w.length() < -1 ) ||
+		(col > board[0].length - 1) ||
+		(col < 0)){
+		return false;
+	    }}
+	if (dy > 0){
+	    if ((w.length() + row > board.length) ||
+		(row > board.length - 1) ||
+		(row < 0)){
+		return false;
+	    }}
+	if (dy < 0){
+	    if ((row - w.length() < -1) ||
+		(row > board.length - 1) ||
+		(row < 0)){
+		return false;
+	    }}
+	
+	return true;
+    }
+	
+    public void addWordGeneral(String w, int row, int col, int dy, int dx){
 	int c = col;
 	int r = row;
-        if ((w.length() + c <= board[0].length)   //word must fit in the board
-	    && (w.length() + col >= 0)&&
-	    (row >= 0 && row < board.length)){   //illegal column and row stop
-	    if (!(overlapHorizontal(w, row, col))){   //overlap false means good to go
+        if (generalErrorCheck(w, row, col, dy, dx)){
+	   
+	    if (!(overlapGeneral(w, row, col, dy, dx))){   //overlap false means good to go
 		for (int i=0; i < w.length();i++){
 		    board[r][c] = w.charAt(i);
 		    c = c + dx;
@@ -374,8 +398,12 @@ public class WordSearch {
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
      	//System.out.println(w);
-	w.addWordH("hello",0,15); // should work
-	w.addWordHR("hello", 0,15);
+	w.addWordGeneral("hello",15,35,1,1); // should work
+	w.addWordGeneral("hello",15,4,-1,0); // should work
+	w.addWordGeneral("hell0",15,3,1,-1); // should work
+	w.addWordGeneral("llllllllllllllll",18,25,0,1); // should work overlap check works
+	//	w.addWordGeneral("hello",6,6,1,1); // should work
+	//	w.addWordHR("hello", 0,15);
 	// w.addWordH("zzzzzzz",3,14); // test illegal overlap
 	//w.addWordH("look",3,18); // test legal overlap
 	//w.addWordH("look",-3,20); // test illegal row
@@ -384,7 +412,7 @@ public class WordSearch {
 	//	System.out.println(w.board[0]);
 	//	System.out.println(w.board.length);
 
-	w.addWordVR("hueheu", 15, 3);
+	//	w.addWordVR("hueheu", 7, 3);
 	/*	w.addWordDSE("halal", 0, 15);
 	w.addWordDSE("uuuh", 14, 10); //tests illegal overlap
 	w.addWordDSW("djjh", 10, 10); //tests illegal overlap
@@ -393,8 +421,12 @@ public class WordSearch {
 	w.addWordDNE("dfd", 10, 10); //tests illegal overlap
 	*/
 	//w.addWordV("dASDASDD" ,0 , 4234324);      illegal column test. 
-	w.addWord("lo000");
+	//	w.addWord("lo000");
+	//	System.out.println(w.generalErrorCheck("llafa", 4, 23, -1, -1));
 	System.out.println(w);
+	//System.out.println(w.board.length);
+	//System.out.println(w.board[0].length);
+	
     }
 }
 
