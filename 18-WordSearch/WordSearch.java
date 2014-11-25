@@ -337,6 +337,13 @@ public class WordSearch {
 
 
     public boolean addWord(String w){
+        int dy = -1 + r.nextInt(3);
+	int dx = -1 + r.nextInt(3);
+	if (dx == 0 && dy == 0){
+	    return false;
+	}
+    }
+    public boolean addWord1(String w){
 	int value  = r.nextInt(8);
 	int randrow = r.nextInt(20);
 	int randcol = r.nextInt(40);
