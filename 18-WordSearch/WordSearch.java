@@ -6,7 +6,6 @@ public class WordSearch {
     Random r = new Random();
     private ArrayList<String> wordList = new ArrayList<String>();
     private ArrayList<String> words = new ArrayList<String>();
-
     public WordSearch(int r, int c){
 	board = new char[r][c];
 	for (int i = 0; i < board.length; i++) {
@@ -19,6 +18,7 @@ public class WordSearch {
     // Constructor
     public WordSearch() {
 	this(20,40);
+	wordList.add("Money");
     }
  
     public String toString(){
@@ -100,37 +100,74 @@ public class WordSearch {
     }
 
 
+    public String getKey(){
+	String s = "";
+	for (int i = 0; i < key.length; i++) {
+	    for (int j = 0; j < key[i].length; j++) {
+		s = s + key[i][j];
+	    }
+	    s = s + "\n";
+	}
+	return s;
+    }
+
+    private void makeKey() {
+	key = new char[board.length][board[0].length];
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[i].length; j++) {
+		key[i][j]=board[i][j];
+	    }
+	}
+    }
+
     public void buildPuzzle(int numwords){
-	for (int i=0;i<numwords;i++){
+	words = new ArrayList<String>();
+	int i = 0;
+	while (i < numwords){
 	    int wordIndex = r.nextInt(wordList.size());
 	    String w = wordList.get(wordIndex);
-	    if (addWordGeneral(w)){
+	    if (addWordRand(w)){
 		words.add(w);
 		wordList.remove(wordIndex);
+		i++;
+	    }}
+	makeKey();
 
-    public boolean addWord(String w){
-        int dy = -1 + r.nextInt(3);
-	int dx = -1 + r.nextInt(3);
-	if (dx == 0 && dy == 0){
+	for(int z = 0; z < board.length; i++){
+	    for (int qq = 0; qq < board[0].length; qq++){
+		if (board[z][qq] == '.'){
+			String alphabet = "abcdefghijklmnopqrstuvwxyz";
+			board[z][qq] = alphabet.charAt(r.nextInt(alphabet.length()));
+		}}}}
+		   
+		    
+
+    public boolean addWordRand(String lala){
+        int horiz = -1 + r.nextInt(3);
+	int vert = -1 + r.nextInt(3);
+	int rownum = r.nextInt(board.length);
+	int colnum = r.nextInt(board[0].length);
+	if (horiz == 0 && vert == 0){
 	    return false;
 	}
 	
-	return true;
+	
+	return addWordGeneral(lala, rownum, colnum, vert, horiz);
     }
     
+    public String getWords(){
+	return ""+words;
+    }
+
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
      	//System.out.println(w);
-	w.addWordGeneral("hello",15,35,1,1); // should work
-	w.addWordGeneral("hello",15,4,-1,0); // should work
-	w.addWordGeneral("hell0",15,3,1,-1); // should work
-	w.addWordGeneral("llllllllllllllll",18,25,0,1); // should work overlap check works
-	//	w.addWordGeneral("hello",6,6,1,1); // should work
-	//	w.addWordHR("hello", 0,15);
-        
-	//w.addWordV("dASDASDD" ,0 , 4234324);      illegal column test. 
-	//	w.addWord("lo000");
-	//	System.out.println(w.generalErrorCheck("llafa", 4, 23, -1, -1));
+	//w.addWordGeneral("hello",15,35,1,1); // should work
+	//	w.addWordGeneral("hello",15,4,-1,0); // should work
+	
+	//w.addWordGeneral("llllllllllllll",18,25,0,1); // should work
+	//	w.addWordRand("Pra");
+	w.buildPuzzle(10);
 	System.out.println(w);
 	//System.out.println(w.board.length);
 	//System.out.println(w.board[0].length);
