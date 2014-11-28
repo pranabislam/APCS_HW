@@ -19,6 +19,7 @@ public class WordSearch {
     public WordSearch() {
 	this(20,40);
 	wordList.add("Money");
+	wordList.add("Moneyzz");
     }
  
     public String toString(){
