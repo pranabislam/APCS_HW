@@ -19,7 +19,18 @@ public class WordSearch {
     public WordSearch() {
 	this(20,40);
 	wordList.add("Money");
-	wordList.add("Moneyzz");
+	wordList.add("Mo");
+	wordList.add("hk");
+	wordList.add("lel");
+	wordList.add("zo");
+	wordList.add("let");
+	wordList.add("e");
+	wordList.add("ol");
+	wordList.add("has");
+	wordList.add("ssj");
+	wordList.add("sd");
+	wordList.add("l0");
+	
     }
  
     public String toString(){
@@ -122,11 +133,14 @@ public class WordSearch {
     }
 
     public void buildPuzzle(int numwords){
-	words = new ArrayList<String>();
 	int i = 0;
-	while (i < numwords){
+	while (i <= numwords){
 	    int wordIndex = r.nextInt(wordList.size());
-	    String w = wordList.get(wordIndex);
+	    /*  System.out.println(r.nextInt(1));
+	    System.out.println(wordIndex);
+	    System.out.println(words);
+	    System.out.println(wordList);*/
+	    String w = wordList.get(wordIndex); 
 	    if (addWordRand(w)){
 		words.add(w);
 		wordList.remove(wordIndex);
@@ -137,8 +151,8 @@ public class WordSearch {
 	for(int z = 0; z < board.length; i++){
 	    for (int qq = 0; qq < board[0].length; qq++){
 		if (board[z][qq] == '.'){
-			String alphabet = "abcdefghijklmnopqrstuvwxyz";
-			board[z][qq] = alphabet.charAt(r.nextInt(alphabet.length()));
+		    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+		    board[z][qq] = alphabet.charAt(r.nextInt(alphabet.length()));
 		}}}}
 		   
 		    
@@ -168,7 +182,7 @@ public class WordSearch {
 	
 	//w.addWordGeneral("llllllllllllll",18,25,0,1); // should work
 	//	w.addWordRand("Pra");
-	w.buildPuzzle(10);
+	w.buildPuzzle(3);
 	System.out.println(w);
 	//System.out.println(w.board.length);
 	//System.out.println(w.board[0].length);
