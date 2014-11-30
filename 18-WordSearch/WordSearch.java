@@ -134,7 +134,7 @@ public class WordSearch {
 
     public void buildPuzzle(int numwords){
 	int i = 0;
-	while (i <= numwords){
+	while (i < numwords){
 	    int wordIndex = r.nextInt(wordList.size());
 	    /*  System.out.println(r.nextInt(1));
 	    System.out.println(wordIndex);
@@ -147,13 +147,13 @@ public class WordSearch {
 		i++;
 	    }}
 	makeKey();
-
-	for(int z = 0; z < board.length; i++){
+	
+	for(int z = 0; z < board.length; z++){
 	    for (int qq = 0; qq < board[0].length; qq++){
 		if (board[z][qq] == '.'){
 		    String alphabet = "abcdefghijklmnopqrstuvwxyz";
 		    board[z][qq] = alphabet.charAt(r.nextInt(alphabet.length()));
-		}}}}
+		    }}}}
 		   
 		    
 
@@ -182,7 +182,13 @@ public class WordSearch {
 	
 	//w.addWordGeneral("llllllllllllll",18,25,0,1); // should work
 	//	w.addWordRand("Pra");
-	w.buildPuzzle(3);
+	/*	w.addWordRand("lalalala");
+	w.addWordRand("lla");
+	w.addWordRand("l333a");
+	w.addWordRand("ldddd");
+	w.addWordRand("lfffa"); */
+	w.buildPuzzle(10);
+	System.out.println(w.getKey());
 	System.out.println(w);
 	//System.out.println(w.board.length);
 	//System.out.println(w.board[0].length);
