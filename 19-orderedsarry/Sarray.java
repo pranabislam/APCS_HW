@@ -16,7 +16,7 @@ public class Sarray {
     }
     public boolean add(String s){
         if (last == data.length-1){
-	    makeBigger(data, 20);
+	    makeBigger(20);
 	    data[last+1] = s;
 	}
 
@@ -30,17 +30,17 @@ public class Sarray {
         // returns true
 
 
-    public void  add(int index, int i){
+    public void  add(int index, String s){
        	if (index > last + 1){
 	    throw new ArrayIndexOutOfBoundsException();
 	}
 	if (last == data.length -1){
-	    makeBigger(data, 20);
+	    makeBigger(20);
 	    }
 	for (int g = last; g >= index; g--){
 		data[g+1] = data[g];
 	}
-	    data[index] = i;
+	    data[index] = s;
 	    last++;
     }
 	   
@@ -61,23 +61,23 @@ public class Sarray {
 	return data;
     }
 
-    public int get(int index) {
+    public String get(int index) {
         return data[index];
 	    
         // returns the item at location index of the lsit
     }
 
-    public int set(int index, int i){
-        int oldvalue = data[index];
-	data[index] = i;
-	return oldvalue;
+    public String set(int index, String s){
+        String oldstring = data[index];
+	data[index] = s;
+	return oldstring;
 	    
 	// sets the item at location index to value i
         // returns the old value. 
     }
 
-    public int remove(int index){
-	int oldvalue = data[index];
+    public String remove(int index){
+	String oldstring = data[index];
         for (int i = index;i<=last;i++){
 	    data[i] = data[i+1];
 	}
@@ -87,14 +87,14 @@ public class Sarray {
 	if (index > last){
 	    throw new ArrayIndexOutOfBoundsException();
 	}
-	return oldvalue;
+	return oldstring;
 	// removes the item at index i
         // returns the old value
     }
-    public void makeBigger(int[] before, int numSpaces){
-	int[] longer = new int[data.length + numSpaces];
+    public void makeBigger(int numSpaces){
+	String[] longer = new String[data.length + numSpaces];
 	System.arraycopy(data,0,longer,0,data.length);
-	data = new int[longer.length];
+	data = new String[longer.length];
 	System.arraycopy(longer, 0, data, 0, data.length);
     }
   
