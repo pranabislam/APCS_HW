@@ -1,7 +1,15 @@
 public class Driver{
     public static void main(String[] args){
 	Sarray test = new Sarray();
-	System.out.println(test.data.length);
+	orderedsarray test1 = new orderedsarray();
+	System.out.println(test1.compareWords("alalalalall", "alalwwww"));
+
+
+
+
+    }}
+
+	/*	System.out.println(test.data.length);
 	test.add(2, 55555);
 	System.out.println(test.printArray());
 	System.out.println(test.remove(2));
@@ -15,3 +23,4 @@ public class Driver{
 	}
     }
 }
+*/
