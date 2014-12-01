@@ -6,6 +6,7 @@ public class WordSearch {
     Random r = new Random();
     private ArrayList<String> wordList = new ArrayList<String>();
     private ArrayList<String> words = new ArrayList<String>();
+   
     public WordSearch(int r, int c){
 	board = new char[r][c];
 	for (int i = 0; i < board.length; i++) {
@@ -173,7 +174,6 @@ public class WordSearch {
     public String getWords(){
 	return ""+words;
     }
-
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
      	//System.out.println(w);
@@ -189,6 +189,7 @@ public class WordSearch {
 	w.addWordRand("lfffa"); */
 	w.buildPuzzle(10);
 	System.out.println(w.getKey());
+
 	System.out.println(w);
 	//System.out.println(w.board.length);
 	//System.out.println(w.board[0].length);
