@@ -5,7 +5,7 @@ public class Driver{
 	System.out.println(test1.compareWords("alalalalall", "alalwwww"));
 	System.out.println(test.printArray());
 	test1.addOrdered("call");
-	System.out.println(test.printArray());
+	System.out.println(test1.printArray());
 
 
     }}
