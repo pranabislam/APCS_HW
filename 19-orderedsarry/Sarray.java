@@ -19,7 +19,6 @@ public class Sarray {
 	    makeBigger(20);
 	    data[last+1] = s;
 	}
-
 	else {
 	    data[last +1] = s;
 	}
