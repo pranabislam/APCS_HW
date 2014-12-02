@@ -4,7 +4,7 @@ import java.util.*;
 public class WordSearch {
     private char[][] board, key;
     Random r = new Random();
-    private ArrayList<String> wordList = new ArrayList<String>();
+    private ArrayList<String> wordList;
     private ArrayList<String> words = new ArrayList<String>();
    
     public WordSearch(int r, int c){
@@ -14,7 +14,23 @@ public class WordSearch {
 		board[i][j]='.';
 	    }
 	}
+	Scanner sc = null;
+	try {
+	    sc = new Scanner(new File("words.txt"));
+	} catch (Exception e){
+	    System.out.println("Can't open word file");
+	    System.exit(0);
+	}
+	wordList = new ArrayList<String>();
+	while (sc.hasNext()){
+	    wordList.add(sc.next().toLowerCase());
+	}
+
     }
+
+
+
+
 
     // Constructor
     public WordSearch() {
@@ -187,7 +203,8 @@ public class WordSearch {
 	w.addWordRand("l333a");
 	w.addWordRand("ldddd");
 	w.addWordRand("lfffa"); */
-	w.buildPuzzle(10);
+	w.buildPuzzle(20);
+	System.out.println( "\n" + "This is the key" + "\n");
 	System.out.println(w.getKey());
 
 	System.out.println(w);
