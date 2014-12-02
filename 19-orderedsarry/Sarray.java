@@ -6,12 +6,12 @@ public class Sarray {
 
     public Sarray() {
 	data = new String[10];
-	data[0] = "a";
-	data[1] = "b";
-	data[2] = "c";
-	data[3] = "d";
-	data[4] = "e";
-	data[5] = "f";
+	data[0] = "aba";
+	data[1] = "uuub";
+	data[2] = "aac";
+	data[3] = "duub";
+	data[4] = "elal";
+	data[5] = "fihihi";
 	last = 5;
     }
     public boolean add(String s){

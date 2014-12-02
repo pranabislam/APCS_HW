@@ -7,6 +7,16 @@ public class orderedsarray extends Sarray {
         super();
     }
   
+    
+    public void addOrdered(String s){
+	for (int i = 0; i< super.getLast();i++){
+	    if (compareWords(s,super.getData()[i]).equals(s)){
+		super.add(i,s);
+	    }
+	    else {
+		super.add(s);
+	    }}}
+
     /*   public boolean addOrdered(String s){
         if (super.getLast() == getData().length-1){
 	    super.makeBigger(20);
