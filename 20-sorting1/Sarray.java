@@ -10,7 +10,7 @@ public class Sarray {
 	data[1] = "zbbub";
 	data[2] = "dccac";
 	data[3] = "qduub";
-	data[4] = "jelal";
+	data[4] = "aaaaelal";
 	data[5] = "fihihi";
 	last = 5;
     }
@@ -122,9 +122,9 @@ public String printArray(){
 	int j;
 	String bingo;
 
-	for (j = 1; j < last; j++){  // skipping first value since cant be ordered
+	for (j = 0; j <= last; j++){  // skipping first value since cant be ordered
 	    bingo = data[j];
-	    for(i = j - 1; (i > 0) && (data[i].compareTo(bingo) >= 0); i--){   // using the algorithm we did in class
+	    for(i = j; (i > 0) && (bingo.compareTo(data[j]) < 0); i--){   // using the algorithm we did in class
 		System.out.println(bingo);
 		data[i] = data[i-1]; // shift if data[i] should be after data[j]
 	    }
@@ -134,12 +134,56 @@ public String printArray(){
     }
 
 
+
+    //Selection Sort
+
+    /*
+       look at location 0
+       find the smallest value between a[0] and the end 
+       swap a[0] with a[index of smallest value]
+       i++
+
+     */
+
+    public String MinString(int startIndex){   //start the search for min here
+	String currentMin = data[0];
+	for (int i = startIndex; i<last; i++){
+	    if (data[i].compareTo(data[i+1]) <= 0){
+		currentMin = data[i];
+	    }}
+	return currentMin;
+    }
+
+    public int indexOf(String bingo){
+	for (int k = 0; k < last; k++){
+	    if (data[k].equals(bingo)){
+		return k;
+	    }
+	}
+	return -1;
+    }
+    
+    public void ssort(){
+	String swapped;
+	int count = 0;
+	int index;
+	for (int i = 0; i<last; i++){
+	    swapped = data[i];
+	    index = indexOf(MinString(i)); //idk what to do if strings repeat
+	    data[count] = MinString(i);
+	    data[
+	    count++;
+    }
+
     public static void main(String[] args){
 	Sarray w = new Sarray();
-	w.insertOrdered("bbbbbbbbbbbbz");
-	w.isort();
-	System.out.println(w.printArray());
+	//w.insertOrdered("bbbbbbbbbbbbz");
+	System.out.println(w.MinString());
+	//System.out.println(w.printArray());
     }
+
+
+
 
 
 
