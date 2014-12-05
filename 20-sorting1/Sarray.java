@@ -6,13 +6,14 @@ public class Sarray {
 
     public Sarray() {
 	data = new String[10];
-	data[0] = "xba";
-	data[1] = "zbbub";
-	data[2] = "dccac";
-	data[3] = "qduub";
-	data[4] = "aaaaelal";
-	data[5] = "fihihi";
-	last = 5;
+	data[0] = "a";
+	data[1] = "b";
+	data[2] = "c";
+	data[3] = "d";
+	data[4] = "e";
+	data[5] = "f";
+	data[6] = "g";
+	last = 6;
     }
     public boolean add(String s){
         if (last == data.length-1){
@@ -148,7 +149,7 @@ public String printArray(){
     public String MinString(int startIndex){   //start the search for min here
 	String currentMin = data[0];
 	for (int i = startIndex; i<last; i++){
-	    if (data[i].compareTo(data[i+1]) <= 0){
+	    if (data[i].compareTo(data[i+1]) < 0){
 		currentMin = data[i];
 	    }}
 	return currentMin;
@@ -162,23 +163,28 @@ public String printArray(){
 	}
 	return -1;
     }
-    
+
     public void ssort(){
 	String swapped;
 	int count = 0;
 	int index;
 	for (int i = 0; i<last; i++){
 	    swapped = data[i];
-	    index = indexOf(MinString(i)); //idk what to do if strings repeat
-	    data[count] = MinString(i);
-	    data[
+	    index = indexOf(MinString(i)); //gets index of "Min" word
+	    data[count] = MinString(i); //starting @ 0, sets min words 
+	    data[index] = swapped; //set the value to whatever index
+	    System.out.println(printArray());
 	    count++;
-    }
+	}}
+
 
     public static void main(String[] args){
 	Sarray w = new Sarray();
 	//w.insertOrdered("bbbbbbbbbbbbz");
-	System.out.println(w.MinString());
+	System.out.println("fasdf");
+	System.out.println(w.MinString(0));
+	w.ssort();
+	System.out.println(w.printArray());
 	//System.out.println(w.printArray());
     }
 
@@ -186,6 +192,6 @@ public String printArray(){
 
 
 
-
-
 }
+
+    
