@@ -6,13 +6,13 @@ public class Sarray {
 
     public Sarray() {
 	data = new String[10];
-	data[0] = "a";
-	data[1] = "b";
-	data[2] = "c";
-	data[3] = "d";
-	data[4] = "e";
-	data[5] = "f";
-	data[6] = "g";
+	data[0] = "Neutron";
+	data[1] = "Simpleton";
+	data[2] = "Aardvark";
+	data[3] = "Cool";
+	data[4] = "Elephant";
+	data[5] = "Zyzz";
+	data[6] = "Jolly";
 	last = 6;
     }
     public boolean add(String s){
@@ -147,33 +147,38 @@ public String printArray(){
      */
 
     public String MinString(int startIndex){   //start the search for min here
-	String currentMin = data[0];
+	String currentMin = data[startIndex];
 	for (int i = startIndex; i<last; i++){
-	    if (data[i].compareTo(data[i+1]) < 0){
+	    if ((data[i].compareTo(data[i+1]) < 0) && (data[i].compareTo(currentMin) < 0)){
 		currentMin = data[i];
 	    }}
+	if (data[last].compareTo(currentMin)<0){
+		currentMin = data[last];
+	    }
 	return currentMin;
     }
-
     public int indexOf(String bingo){
-	for (int k = 0; k < last; k++){
+	for (int k = 0; k <= last; k++){
 	    if (data[k].equals(bingo)){
 		return k;
 	    }
 	}
 	return -1;
     }
-
+    // Works like a charm
     public void ssort(){
 	String swapped;
 	int count = 0;
 	int index;
-	for (int i = 0; i<last; i++){
+	System.out.println("Original Array: " + printArray()+"\n");
+	for (int i = 0; i<=last; i++){
 	    swapped = data[i];
 	    index = indexOf(MinString(i)); //gets index of "Min" word
+	    // System.out.println("index of min string:" + index);
+	    // System.out.println("i value:" + i);
 	    data[count] = MinString(i); //starting @ 0, sets min words 
 	    data[index] = swapped; //set the value to whatever index
-	    System.out.println(printArray());
+	    System.out.println(printArray() + "\n");
 	    count++;
 	}}
 
@@ -181,11 +186,11 @@ public String printArray(){
     public static void main(String[] args){
 	Sarray w = new Sarray();
 	//w.insertOrdered("bbbbbbbbbbbbz");
-	System.out.println("fasdf");
-	System.out.println(w.MinString(0));
+	//	System.out.println("fasdf");
+	//System.out.println(w.MinString(0));
 	w.ssort();
+	System.out.println("Official printing");
 	System.out.println(w.printArray());
-	//System.out.println(w.printArray());
     }
 
 
