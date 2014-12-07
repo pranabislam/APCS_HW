@@ -3,6 +3,7 @@ import java.util.*;
 public class Sarray {
     private String[] data;
     private int last;
+    Random r = new Random();
 
     public Sarray() {
 	data = new String[10];
@@ -15,6 +16,19 @@ public class Sarray {
 	data[6] = "Jolly";
 	last = 6;
     }
+
+    
+    public Sarray(int num){
+	data = new String[num];
+	for (int i = 0; i < num; i++){
+	    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+	    int randdy = r.nextInt(26);
+	    data[i] = alphabet.substring(randdy, randdy+1);
+	    
+	}
+	last = num - 1;
+    }
+	
     public boolean add(String s){
         if (last == data.length-1){
 	    makeBigger(20);
@@ -117,25 +131,18 @@ public String printArray(){
 	data[i]=newvalue;
     }
   
-
+    //insertion sort
     public void isort(){
-	int i;
-	int j;
-	String bingo;
-
-	for (j = 0; j <= last; j++){  // skipping first value since cant be ordered
-	    bingo = data[j];
-	    for(i = j; (i > 0) && (bingo.compareTo(data[j]) < 0); i--){   // using the algorithm we did in class
-		System.out.println(bingo);
-		data[i] = data[i-1]; // shift if data[i] should be after data[j]
+	String current;
+	for (int i = 0; i <= last; i++){
+	    int j;
+	    current = data[i];
+	    for (j = i; j > 0 && current.compareTo(data[j-1]) < 0; j--) {
+		data[j] = data[j-1];    
 	    }
-	    
-	    data[i] = bingo;    // Put bingo in place
+	    data[j] = current;
 	}
     }
-
-
-
     //Selection Sort
 
     /*
@@ -165,7 +172,22 @@ public String printArray(){
 	}
 	return -1;
     }
-    // Works like a charm
+    
+   
+
+    public void ssort1(){
+	for (int i = 0; i < last; i++){
+	    int index = i;
+	    for (int j = i + 1; j <= last; j++)
+		if (data[j].compareTo(data[index]) < 0) 
+		    index = j;
+	    String smaller = data[index];  
+	    data[index] = data[i];
+	    data[i] = smaller;
+	}
+    }
+
+    /*my myopic attempt at trying this a weird way that ultimately ending in failure 
     public void ssort(){
 	String swapped;
 	int count = 0;
@@ -178,19 +200,35 @@ public String printArray(){
 	    // System.out.println("i value:" + i);
 	    data[count] = MinString(i); //starting @ 0, sets min words 
 	    data[index] = swapped; //set the value to whatever index
-	    System.out.println(printArray() + "\n");
+	    //System.out.println(printArray() + "\n");
 	    count++;
 	}}
-
+    */
 
     public static void main(String[] args){
-	Sarray w = new Sarray();
+	Sarray w = new Sarray(4000);
 	//w.insertOrdered("bbbbbbbbbbbbz");
 	//	System.out.println("fasdf");
 	//System.out.println(w.MinString(0));
-	w.ssort();
-	System.out.println("Official printing");
-	System.out.println(w.printArray());
+	//	w.ssort();
+	//w.isort();
+	//System.out.println(indexOf(MinString(0)));
+	double start = System.nanoTime();
+	w.ssort1();
+	double end = System.nanoTime();
+	double time = end - start;
+
+	double start1 = System.nanoTime();
+	w.isort();
+	double end1 = System.nanoTime();
+	double time1 = end1 - start1;
+	System.out.println("\n");
+	
+	System.out.println(time);
+	System.out.println("\n");
+	System.out.println(time1);
+	System.out.println("\n");
+	//System.out.println(w.printArray());
     }
 
 
