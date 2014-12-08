@@ -206,7 +206,7 @@ public String printArray(){
     */
 
     public static void main(String[] args){
-	Sarray w = new Sarray(4000);
+	Sarray w = new Sarray(1000);
 	//w.insertOrdered("bbbbbbbbbbbbz");
 	//	System.out.println("fasdf");
 	//System.out.println(w.MinString(0));
