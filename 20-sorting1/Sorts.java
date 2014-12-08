@@ -11,12 +11,14 @@ class Sorts {
 	r = new Random();
 	data = new int[n];
 	copy = new int[n];
+	backwards = new int[n];
 	fill();
+
 				
     }
 
     public Sorts() {
-	this(10000000);
+	this(100);
     }
 
     public void fill(){
@@ -35,7 +37,18 @@ class Sorts {
 	    data[i] = copy[i];
 	}
     }
+    public void backwards(){
+	isort();
+	int count = 0;
+	for (int i = data.length-1; i >= 0; i--){
+	    backwards[count] = data[i];
+	    count++;
 
+	}
+	for (int i = 0; i<data.length;i++){
+	    data[i] = backwards[i];
+	}}
+	
 
     public void isort() {
 	int i,j;
@@ -89,7 +102,33 @@ class Sorts {
     public static void main(String[] args) {
 	Sorts s = new Sorts();
 	//	System.out.println(s);
+	s.backwards();
+	//System.out.println(s);
+
+	double start = System.nanoTime();
+	s.ssort();
+	double end = System.nanoTime();
+	double time = end - start;
+
+	double start1 = System.nanoTime();
+	s.isort();
+	double end1 = System.nanoTime();
+	double time1 = end1 - start1;
+	
+	double start2 = System.nanoTime();
 	s.builtin();
+	double end2 = System.nanoTime();
+	double time2 = end2 - start2;
+
+	System.out.println("\n");
+	System.out.println(time);
+	System.out.println("\n");
+	System.out.println(time1);
+	System.out.println("\n");
+	System.out.println(time2);
+	System.out.println("\n");
+	
+	
 	//System.out.println(s);
     }
 }

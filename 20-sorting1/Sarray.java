@@ -223,7 +223,6 @@ public String printArray(){
 	double end1 = System.nanoTime();
 	double time1 = end1 - start1;
 	System.out.println("\n");
-	
 	System.out.println(time);
 	System.out.println("\n");
 	System.out.println(time1);
