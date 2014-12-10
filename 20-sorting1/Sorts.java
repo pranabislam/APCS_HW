@@ -18,7 +18,7 @@ class Sorts {
     }
 
     public Sorts() {
-	this(4000);
+	this(1000);
     }
 
     public void fill(){
@@ -102,8 +102,8 @@ class Sorts {
     public static void main(String[] args) {
 	Sorts s = new Sorts();
       	//System.out.println(s);
-	//	s.backwards();
-	//System.out.println(s);
+      	s.backwards();
+	System.out.println(s);
 
 	double start = System.nanoTime();
 	s.ssort();
