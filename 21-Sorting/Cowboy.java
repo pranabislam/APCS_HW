@@ -4,8 +4,8 @@ import java.util.*;
 public class Cowboy extends Basechar implements Comparable{
     // Cowboy-specific variables
     private int ammo;
-    private Cowboy[] boyz = new Cowboy[10];
-    /* Cowboy a = new Cowboy();
+    private Cowboy[] boyz = new Cowboy[5];
+    Cowboy a = new Cowboy();
     Cowboy b = new Cowboy();
     Cowboy c = new Cowboy();
     Cowboy d = new Cowboy();
@@ -14,17 +14,17 @@ public class Cowboy extends Basechar implements Comparable{
     boyz[1] = b;
     boyz[2] = c;
     boyz[3] = d;
-    boyz[4] = e;  */
+    boyz[4] = e;  
     Random r = new Random();
     
     // constructors
     public Cowboy() {
 	super();
 	this.setAmmo();
-	for (int i = 0; i < 10; i++){
+	/*	for (int i = 0; i < 10; i++){
 	    boyz[i] = new Cowboy();
 	}
-	    
+	*/	    
     }
     public Cowboy(String name) {
         super(name, 100, 25, 15, 15, 40, 25);
@@ -96,6 +96,11 @@ public class Cowboy extends Basechar implements Comparable{
 	    
     public static void main(String[] args){
 	Cowboy pop = new Cowboy();
+	a.setAmmo();
+	b.setAmmo();
+	c.setAmmo();
+	d.setAmmo();
+	e.setAmmo();
 	    System.out.println(pop);
 	    }
 
