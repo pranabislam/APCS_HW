@@ -37,21 +37,37 @@ public class Searching implements Comparable{
 	int low = 0;
 	int high = a.length;
 	while (low < high){
-	    if (a[a.length/2].compareTo(item) = 0){
-		return a[a.length/2];
+	    int middle = (low + high)/2;
+	    if (a[middle].compareTo(item) == 0){
+		return a[middle];
 	    }
-	    if (a[a.length/2].compareTo(item) > 0){
-		high = a.length/2 - 1;
+	    if (a[middle].compareTo(item) > 0){
+		high = middle - 1;
 	    }
-	    if (a[a.length/2].compareTo(item) < 0){
-		low = a.length/2 + 1;
+	    if (a[middle].compareTo(item) < 0){
+		low = middle + 1;
 	    }
-
-	    else{
-		return null;
-		    }}}
+	}
+	    
+	return null;
+    }
     
 
+    public Comparable rbsearch(Comparable lml, int low, int high){
+	if (low > high){
+	    return null
+		}
+	int middle = (low + high)/2;
+	if (a[middle].compareTo(lml) == 0){
+	    return a[middle];
+	}
+	else if (a[middle].compareTo(lml) < 0){
+	    return rbsearch(lml, middle + 1, high);
+	}
+	else 
+	    return rbsearch(lml, low, middle - 1);
+    
+    }
 
     public static void main(String[] args){
 
