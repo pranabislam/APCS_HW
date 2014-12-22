@@ -1,0 +1,15 @@
+Flappy Bird 
+
+classes:
+1) obstables (those pillars that vary in height and appear)
+	Attributes: 
+		a) height
+		b) width (constant)
+		c) complement pillar
+
+
+2) flying birdlike character 
+attrubute:
+a)helth
+2)face
+3)
