@@ -17,3 +17,7 @@ Link to Michael and Edward's final project: https://github.com/Revalucien/apcsfi
 
 3) I liked how you separated different major tasks into different classes,
 	it is the correct java way to do things. 
+
+4) I don't think I could improve your code more than adding a few helper functions 
+	for the math formulas or adding smart variable names. I think 
+	it was well executed, not many improvements come to mind. 
