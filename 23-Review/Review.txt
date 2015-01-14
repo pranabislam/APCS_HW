@@ -1,0 +1,19 @@
+Link to Michael and Edward's final project: https://github.com/Revalucien/apcsfinal_fall
+
+1) There are a lot of variables to keep track of. Now I understand 
+	that some of the variables are just grouped up in a 
+	series like (x1, x2, x3) for listing and regression 
+	purposes, but naming variables things like "m" in line 
+	55 in MWindow.java for "number of training examples" just doesn't seem 
+	like the best idea. 
+
+2) Line 50 in MWindow.java, you create a method. This method is very long
+	although it is reasonably organized, I feel like
+	it can be cleaner with use of helper methods. There
+	are so many for loops for different mathematical formulas, 
+	it makes sense to just make a method for the formula 
+	or calculation, and call a list of methods instead of
+	call a ton of for loops that implement some calculation. 
+
+3) I liked how you separated different major tasks into different classes,
+	it is the correct java way to do things. 
